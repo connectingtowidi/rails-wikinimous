@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <%= link_to "Wikinimous", root_path, style:"font-size: 24px; text-decoration: none; color: grey; " %>
+      <div>
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h1><%= @article.title %></h1>
+      <p><%= @article.content %></p>
+      <%# <i class="fa-solid fa-pencil"></i> %>
+      <%# <i class="fa-solid fa-trash"></i> %>
+      <div>
+        <%= link_to "", edit_article_path, class: "fa-solid fa-pencil", style: "text-decoration: none; font-size: 24px" %>
+        <%= link_to "", article_path(@article), class: "fa-solid fa-trash",
+          style: "text-decoration: none; font-size: 24px",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts "🌱 Seeding..."
+
+Article.destroy_all
+
+10.times do
+  article = Article.create(
+    title: Faker::Company.catch_phrase,
+    content: Faker::Hipster::sentences
+  )
+end
+
+puts "✅ Done seeding!"
